@@ -1,10 +1,10 @@
 # vmkit-nix
 
-Building blocks for running VMs on [cloud-hypervisor] from NixOS hosts: the
-Go packages and the NixOS module shared by
-[microvm-github-runners] (throwaway runner microVMs) and [ai-workspace]
-(persistent workspace VMs). vmkit is not a general cloud-hypervisor SDK; it
-is the part of those two that does not care which VMs it runs.
+Building blocks for running VMs on [cloud-hypervisor] from NixOS hosts: Go
+packages for controllers that boot and manage VMs, and a NixOS module for
+what those controllers share when they run on one host. vmkit is not a
+general cloud-hypervisor SDK; it is the part of a controller that does not
+care which VMs it runs, throwaway or long-lived.
 
 ## Go packages
 
@@ -50,8 +50,8 @@ import it. Make every controller's `vmkit` input follow the same one:
 ```nix
 inputs = {
   vmkit.url = "github:OSSystems/vmkit-nix";
-  microvm-github-runners.inputs.vmkit.follows = "vmkit";
-  ai-workspace.inputs.vmkit.follows = "vmkit";
+  controller-a.inputs.vmkit.follows = "vmkit";
+  controller-b.inputs.vmkit.follows = "vmkit";
 };
 ```
 
@@ -63,5 +63,3 @@ nix fmt -- $(git ls-files '*.nix')
 ```
 
 [cloud-hypervisor]: https://github.com/cloud-hypervisor/cloud-hypervisor
-[microvm-github-runners]: https://github.com/OSSystems/microvm-github-runners
-[ai-workspace]: https://github.com/OSSystems/ai-workspace

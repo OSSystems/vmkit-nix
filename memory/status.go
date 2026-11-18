@@ -11,7 +11,7 @@ import (
 
 // Status is what one pool of VMs publishes about the memory it holds, so
 // the other pools on the host can account for it. A pool is whatever one
-// controller manages: a runner scale set, a set of workspaces.
+// controller manages.
 type Status struct {
 	UpdatedAt      time.Time `json:"updatedAt"`
 	CommittedBytes int64     `json:"committedBytes"`
@@ -69,10 +69,10 @@ func ReadStatuses(paths []string, now time.Time) Status {
 	return sum
 }
 
-// Pools sharing a host come in two ranks. A first pool (workspaces) grows
-// before a yielding pool (runners), except into the memory the yielding
-// pool is guaranteed. Each pool publishes its Status and reads the other
-// rank's.
+// Pools sharing a host come in two ranks. A first pool, say long-lived VMs
+// people work in, grows before a yielding pool, say throwaway CI VMs,
+// except into the memory the yielding pool is guaranteed. Each pool
+// publishes its Status and reads the other rank's.
 
 // Ahead is what a yielding pool sees of the first pools on its host.
 type Ahead struct {
