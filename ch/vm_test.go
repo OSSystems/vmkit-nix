@@ -53,3 +53,8 @@ func TestFirmwareBootArgs(t *testing.T) {
 	}
 }
 
+func TestGuestPortSocket(t *testing.T) {
+	if got := GuestPortSocket("/run/vm/vsock.sock", 5001); got != "/run/vm/vsock.sock_5001" {
+		t.Fatal(got)
+	}
+}
