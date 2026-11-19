@@ -16,3 +16,4 @@
 
 pub mod ch;
 pub mod hostutil;
+pub mod vsock;
