@@ -5,7 +5,10 @@ pkgs.buildGoModule {
   version = "0.1.0";
   src = pkgs.lib.fileset.toSource {
     root = ../..;
-    fileset = pkgs.lib.fileset.fileFilter (f: f.hasExt "go" || f.name == "go.mod") ../..;
+    fileset = pkgs.lib.fileset.unions [
+      (pkgs.lib.fileset.fileFilter (f: f.hasExt "go" || f.name == "go.mod") ../..)
+      ../../testdata
+    ];
   };
   vendorHash = null;
   env.CGO_ENABLED = 0;
