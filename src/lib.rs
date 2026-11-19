@@ -15,6 +15,7 @@
 #![cfg(target_os = "linux")]
 
 pub mod ch;
+pub mod control;
 pub mod hostutil;
 pub mod memory;
 pub mod tap;
