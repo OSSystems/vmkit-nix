@@ -14,4 +14,5 @@
 
 #![cfg(target_os = "linux")]
 
+pub mod ch;
 pub mod hostutil;
