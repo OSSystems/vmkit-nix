@@ -13,3 +13,5 @@
 //! [cloud-hypervisor]: https://www.cloudhypervisor.org/
 
 #![cfg(target_os = "linux")]
+
+pub mod hostutil;
