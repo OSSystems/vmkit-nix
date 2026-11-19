@@ -3,6 +3,8 @@
 
 mod client;
 mod vm;
+mod vsock;
 
 pub use client::{Client, Error, VmInfo};
 pub use vm::{Disk, Net, Share, Vm};
+pub use vsock::{dial_guest, guest_port_socket};
