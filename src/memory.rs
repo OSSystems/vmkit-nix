@@ -7,5 +7,7 @@
 //! when the host is past its reserve.
 
 mod policy;
+mod status;
 
 pub use policy::*;
+pub use status::*;
