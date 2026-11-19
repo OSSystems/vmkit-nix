@@ -16,6 +16,7 @@
 
 pub mod ch;
 pub mod hostutil;
+pub mod memory;
 pub mod tap;
 pub mod virtiofs;
 pub mod vsock;
