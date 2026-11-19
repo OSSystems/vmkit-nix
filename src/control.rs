@@ -363,7 +363,8 @@ mod tests {
     }
 
     // docs/contracts.md: the control channel's framing and the stats
-    // request, from the fixtures the Go tests read too.
+    // request, from the fixtures the Go tests on the
+    // go branch read too.
     #[test]
     fn contract_fixtures() {
         let req = Request::stats_from(&contract("meminfo.txt"), &contract("pressure.txt")).unwrap();

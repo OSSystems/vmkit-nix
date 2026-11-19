@@ -183,7 +183,8 @@ mod tests {
     }
 
     // docs/contracts.md: the pool status files every controller writes and
-    // reads, from the fixtures the Go tests read too.
+    // reads, from the fixtures the Go tests on the
+    // go branch read too.
     #[test]
     fn contract_fixtures() {
         let updated: Timestamp = "2026-11-18T12:00:00.5Z".parse().unwrap();
